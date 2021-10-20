@@ -1,12 +1,16 @@
 package com.olivertech;
-import java.math.*;
+
+
 
 public class Exercise1 {
-//    String[] arr = {"you", "are", "how", "Hello"};
-//
-//    for(int i = 0; i < arr.length; i--){
-//        arr[i]
-//    }
+    public static void main(String[]args){
+        String[] array = {"you", "are", "how", "Hello"};
+
+        for(int i = array.length-1; i >= 0; i--){
+            System.out.println(array[i]);
+        }
+    }
+
 
 
 

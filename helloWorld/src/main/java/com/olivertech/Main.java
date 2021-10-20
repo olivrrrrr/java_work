@@ -1,4 +1,7 @@
 package com.olivertech;
+import com.email.EmailValidator;
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -72,48 +75,56 @@ public class Main {
 //            System.out.println(array[i]);
 //        }
 
-
-        // Exercise 2
-//        String numbers = "0.90, 1.00, 9.00, 8.78, 0.01";
-//        // make numbers into an array using split
-//           String[] arr = numbers.split(", ",0);
-//
-//           double sum = 0;
-//           for (int i=0; i < arr.length; i++){
-//               double value = Double.parseDouble(arr[i])
-//               sum += value;
-//           }
-//
 //        System.out.println(sum);
 
-        // Exercise 3
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Yes or no?");
-//        String input = scanner.nextLine();
-//        if(input=="Yes" || input=="No"){
-//            System.out.println("knock, knock");
-//        } else {
-//
-//        }
-//        System.out.printf(input);
+
+        Passport british = new Passport(123431, "Oliver", "Red");
+        british.setPassportNumber(1);
+        System.out.println(british.getPassportNumber());
+        Person olivia = new Person("Olivia", "Ekwalla", "Female");
+        Person luka = new Person("Luke", "Luke", "Male");
+        System.out.println(luka.getFirstName());
 
 
-        // Exercise 4
-        String longestWord = "";
-        String longestWord2 = "";
-        String[] arr = {"hello", "ola", "bye", "ciao","bingo"};
-        for(int i=0; i < arr.length; i++){
-            if(arr[i].length() >= longestWord.length()) {
-                longestWord += arr[i];
-                longestWord2 += arr[i] + ", ";
-            }
-        }
+        // Car ford = new Car("ford". "mustang", 20,000)
+        Car[] mycars = {new Car("ford", "mustang", 20000),
+                new Car("ferrari", "458 Italia", 100000)
+        };
 
-        System.out.println(words);
+        Garage cambridgeGarage = new Garage("Huge", mycars, "light Blue", true);
+        System.out.println(cambridgeGarage.getSize());
+        System.out.println(Arrays.toString(cambridgeGarage.getCars()));
 
 
+//        Questionnaire questionnaire = new Questionnaire(4321. );
 
 
     }
+
+    static void completeQuestionaire() {
+        Scanner scanner = new Scanner(System.in);
+
+        EmailValidator validation = new EmailValidator();
+
+
+        // what is your name ?
+        System.out.println("What is your name?");
+        String name = scanner.nextLine();
+
+        // what is your email
+        System.out.println("What is your email");
+        String email = scanner.nextLine();
+
+        while (!validation.isValid(email)) {
+            System.out.println("Please re enter a valid email address");
+            email = scanner.nextLine();
+        }
+
+        Person2 person = new Person2(name, email);
+
+        Questionnaire questionnaire = new Questionnaire(person, new Question[]{new Question("What's for tea ? "), new Question("Got any leftovers ;)?")});
+
+    }
 }
+
 
